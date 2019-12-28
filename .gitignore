@@ -1,4 +1,4 @@
 .idea
 *__pycache__*
-sneaky/db.sqlite3
-sneaky/sneaky/staticfiles
+db.sqlite3
+sneaky/staticfiles
