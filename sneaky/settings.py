@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -23,9 +24,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ww8u@iv_i27a)re0spge!zvu7=zj!7&)@qot5ys%2+0c9&@$lt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True if not os.environ['SNEAKY_PROD'] else False
 
 ALLOWED_HOSTS = [
+    'www.nikhilshinday.com',
+    'nikhilshinday.com',
     'nikhil-sneaky.herokuapp.com',
     '127.0.0.1'
 ]
@@ -134,7 +137,7 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
 
-import dj_database_url 
-prod_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)
+
+import dj_database_url
+DATABASES['default'].update(dj_database_url.config(conn_max_age=500))
 
