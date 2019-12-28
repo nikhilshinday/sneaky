@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
 class Blog(models.Model):
     text = models.TextField()
     title = models.CharField(max_length=1000)
