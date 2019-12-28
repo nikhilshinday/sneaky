@@ -24,14 +24,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ww8u@iv_i27a)re0spge!zvu7=zj!7&)@qot5ys%2+0c9&@$lt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if not os.environ['SNEAKY_PROD'] else False
+DEBUG = not os.environ.get('SNEAKY_PROD', True)
 
-ALLOWED_HOSTS = [
-    'www.nikhilshinday.com',
-    'nikhilshinday.com',
-    'nikhil-sneaky.herokuapp.com',
-    '127.0.0.1'
-]
+if os.environ.get('SNEAKY_PROD', None):
+    ALLOWED_HOSTS = [
+        'www.nikhilshinday.com',
+        'nikhilshinday.com'
+    ]
+else:
+    ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -135,7 +136,6 @@ STATICFILES_DIRS = [
     os.path.join(PROJECT_ROOT, 'static')
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_URL = '/static/'
 
 
 import dj_database_url
