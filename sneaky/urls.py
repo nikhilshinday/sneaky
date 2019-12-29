@@ -17,18 +17,8 @@ from django.contrib import admin
 from django.urls import path
 
 from sneaky.views import index
-from sneaky.views import energy
-from sneaky.views import people
-from sneaky.views import being
-from blog.views import blog
-from blog.views import blogs
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
-    path('blog/', blogs),
-    path('blog/<int:pk>', blog),
-    path('energy/', energy),
-    path('people/', people),
-    path('being/', being)
+    path('', index)
 ]

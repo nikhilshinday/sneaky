@@ -1,17 +1,14 @@
 from django.shortcuts import render
 
+from blog.models import Blog
+
 
 def index(request):
-    return render(request, 'sneaky/index.html')
-
-
-def energy(request):
-    return render(request, 'sneaky/energy.html')
-
-
-def people(request):
-    return render(request, 'sneaky/people.html')
-
-
-def being(request):
-    return render(request, 'sneaky/being.html')
+    blogs = Blog.objects.all().order_by('date').values('title', 'url_title')
+    return render(
+        request,
+        'sneaky/index.html',
+        {
+            'blogs': blogs
+        }
+    )

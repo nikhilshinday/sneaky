@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
+{% for blog in blogs %}
+    <p><a href="/{{ blog.url_title }}">{{ blog.title }}</a></p>
+{% endfor %}
+<hr>
 <p>In character, in manner, in style, in all things, the supreme excellence is simplicity.</p>
 <p><b>Henry Wadsworth Longfellow</b></p>
+<hr>
+<p>nikhilshinday@gmail.com</p>
 {% endblock %}
