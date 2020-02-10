@@ -2,7 +2,7 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 {% for blog in blogs %}
-    <p><a href="/{{ blog.url_title }}">{{ blog.title }}</a></p>
+    <p><a href="/blogs/{{ blog.url_title }}">{{ blog.title }}</a></p>
 {% endfor %}
 <hr>
 <p>In character, in manner, in style, in all things, the supreme excellence is simplicity.</p>

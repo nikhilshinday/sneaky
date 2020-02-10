@@ -8,6 +8,6 @@ def blogs(request):
     return render(request, 'blog/blogs.html', {'blogs': blogs})
 
 
-def blog(request, pk):
-    blog = Blog.objects.get(pk=pk)
+def blog_post(request, url_title):
+    blog = Blog.objects.get(url_title=url_title)
     return render(request, 'blog/blog.html', {'blog': blog})

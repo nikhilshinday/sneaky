@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path
 
 from sneaky.views import index
+from blog.views import blog_post
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('blogs/<slug:url_title>', blog_post),
     path('', index)
 ]
