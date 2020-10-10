@@ -1,5 +1,2 @@
-.idea
-*__pycache__*
-db.sqlite3
-sneaky/staticfiles
+.idea/*
 .env
